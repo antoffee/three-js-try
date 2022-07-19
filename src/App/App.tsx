@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import cnBind, { Argument } from 'classnames/bind';
-import Heart from 'models/Heart';
+
+import { AnimatedHeart } from 'components/AnimatedHeart';
 
 import styles from './App.module.scss';
 
@@ -12,7 +13,7 @@ export const App: React.FC = () => {
     return (
         <div className={cx('App')}>
             <Canvas
-                camera={{ position: [2, 0, 12.25], fov: 15 }}
+                camera={{ position: [0, 0, 50], fov: 15 }}
                 style={{
                     backgroundColor: '#111a21',
                     width: '100vw',
@@ -22,9 +23,7 @@ export const App: React.FC = () => {
                 <ambientLight intensity={1.25} />
                 <ambientLight intensity={0.1} />
                 <directionalLight intensity={0.4} />
-                <Suspense fallback={null}>
-                    <Heart />
-                </Suspense>
+                <AnimatedHeart />
                 <OrbitControls />
             </Canvas>
         </div>

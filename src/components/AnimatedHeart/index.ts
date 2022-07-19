@@ -1,0 +1,1 @@
+export { AnimatedHeart } from './AnimatedHeart';
