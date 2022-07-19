@@ -15,8 +15,6 @@ const htmlCommonProperties = {
     title: 'Thmoon',
 };
 
-const copiedAssets = ['robots.txt', 'manifest.json'];
-
 const devCssLoaders = [
     'style-loader',
     {
@@ -61,8 +59,7 @@ const commonConfig: Configuration = {
                 {
                     from: resolveFromRoot('public'),
                     to: resolveFromRoot('build'),
-                    filter: (filename) =>
-                        copiedAssets.reduce<boolean>((accum, asset) => accum || filename.includes(asset), false),
+                    filter: (filename) => !filename.includes('index.html'),
                 },
             ],
         }),
