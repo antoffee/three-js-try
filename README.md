@@ -1,5 +1,3 @@
-# @thmoon/templates - Next.js
-
 ### Includes:
 
 -   typescript
