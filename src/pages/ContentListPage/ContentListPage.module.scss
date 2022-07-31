@@ -1,0 +1,25 @@
+.content-list-page {
+    min-width: 100vw;
+    min-height: 100vh;
+
+    h1 {
+        @include title;
+        color: $text-main;
+    }
+
+    &__list {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        &-item {
+            @include body-1;
+
+            color: $text-main;
+            text-decoration: none;
+            text-align: left;
+            cursor: pointer;
+        }
+    }
+}

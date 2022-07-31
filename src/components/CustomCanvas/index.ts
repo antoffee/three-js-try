@@ -1,0 +1,1 @@
+export { CustomCanvas } from './CustomCanvas';

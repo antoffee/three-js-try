@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
-import Heart from 'models/Heart';
+import Heart from 'models/HeartModel';
 
 export const AnimatedHeart = () => {
     const meshRef = React.useRef<THREE.Mesh | null>(null);

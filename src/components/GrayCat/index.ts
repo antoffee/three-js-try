@@ -1,0 +1,1 @@
+export { GrayCat } from './GrayCat';

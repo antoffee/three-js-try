@@ -10,6 +10,8 @@ import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration, DefinePlugin } from 'webpack';
 import { CustomizeRule, merge, mergeWithRules } from 'webpack-merge';
 
+const resolveFromRoot = (...pathSegments: string[]) => path.resolve(__dirname, ...pathSegments);
+
 const htmlCommonProperties = {
     filename: 'index.html',
     title: 'Thmoon',
@@ -45,8 +47,6 @@ const prodCssLoaders = [
     'postcss-loader',
 ];
 
-const resolveFromRoot = (...pathSegments: string[]) => path.resolve(__dirname, ...pathSegments);
-
 const commonConfig: Configuration = {
     entry: './src/index.tsx',
     target: 'web',
@@ -73,7 +73,20 @@ const commonConfig: Configuration = {
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: [...devCssLoaders, 'sass-loader'],
+                use: [
+                    ...devCssLoaders,
+                    'sass-loader',
+                    {
+                        loader: 'style-resources-loader',
+                        options: {
+                            patterns: [
+                                // ? if you want to globaly add .scss files - do it here
+                                resolveFromRoot('src/mixins.scss'),
+                                resolveFromRoot('src/colors.scss'),
+                            ],
+                        },
+                    },
+                ],
             },
             {
                 test: /\.ts(x?)?$/,
@@ -203,7 +216,20 @@ export const productionConfig: Configuration = mergeWithRules({
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: [...prodCssLoaders, 'sass-loader'],
+                use: [
+                    ...prodCssLoaders,
+                    'sass-loader',
+                    {
+                        loader: 'style-resources-loader',
+                        options: {
+                            patterns: [
+                                // ? if you want to globaly add .scss files - do it here
+                                resolveFromRoot('src/mixins.scss'),
+                                resolveFromRoot('src/colors.scss'),
+                            ],
+                        },
+                    },
+                ],
             },
         ],
     },
