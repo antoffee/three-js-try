@@ -29,7 +29,7 @@ const ACTION_NAME = 'Take 001';
 
 export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
     const group = useRef<THREE.Group>();
-    const { nodes, materials, animations } = useGLTF('/gray-cat.gltf') as GLTFResult;
+    const { nodes, materials, animations } = useGLTF('/grayCat/gray-cat.gltf') as GLTFResult;
 
     const { actions } = useAnimations(animations, group);
 
@@ -78,4 +78,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
     );
 }
 
-useGLTF.preload('/gray-cat.gltf');
+useGLTF.preload('/grayCat/gray-cat.gltf');

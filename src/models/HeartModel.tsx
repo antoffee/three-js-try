@@ -20,15 +20,19 @@ type GLTFResult = GLTF & {
     };
 };
 
-export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
+export default function Model({ bgColor, ...props }: JSX.IntrinsicElements['group'] & { bgColor?: string }) {
     const group = useRef<THREE.Group>(null);
-    const { nodes, materials } = useGLTF('/heart.gltf') as GLTFResult;
+    const { nodes, materials } = useGLTF('/heart/heart.gltf') as GLTFResult;
     return (
         <group ref={group} {...props} dispose={null}>
             <group rotation={[-Math.PI / 2, 0, 0]}>
                 <group position={[4.08, 1.01, 5.9]} rotation={[-0.27, 0.6, 1.93]} />
                 <group scale={2.61}>
-                    <mesh geometry={nodes.Cube_1.geometry} material={materials.Material} material-color="teal" />
+                    <mesh
+                        geometry={nodes.Cube_1.geometry}
+                        material={materials.Material}
+                        material-color={bgColor ?? 'teal'}
+                    />
                 </group>
                 <group position={[-6.48, -1.22, 6.3]} rotation={[0.02, -0.72, 0.07]} />
                 <group position={[4.17, 0.43, -6.1]} />
@@ -37,4 +41,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
     );
 }
 
-useGLTF.preload('/heart.gltf');
+useGLTF.preload('/heart/heart.gltf');

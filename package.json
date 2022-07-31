@@ -10,7 +10,7 @@
         "prettier": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json)\"",
         "stylelint": "stylelint 'src/**/*.{css,scss}'",
         "stylelint:fix": "stylelint 'src/**/*.{css,scss}' --fix",
-        "gen-jsx-models": "gltfjsx ./public/gray-cat.gltf -t -D -r && mv ./*.tsx ./src/generated/GrayCatModel.tsx"
+        "gen-jsx-models": "gltfjsx ./public/heart.gltf -t -D -r && mv ./*.tsx ./src/generated/HeartModel.tsx"
     },
     "dependencies": {
         "@react-three/drei": "^8.20.2",

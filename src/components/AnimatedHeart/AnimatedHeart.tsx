@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { useFrame } from '@react-three/fiber';
 import Heart from 'models/HeartModel';
 
-export const AnimatedHeart = () => {
+export const AnimatedHeart = ({ bgColor }: { bgColor?: string }) => {
     const meshRef = React.useRef<THREE.Mesh | null>(null);
 
     useFrame(({ clock }) => {
@@ -15,7 +15,7 @@ export const AnimatedHeart = () => {
     return (
         <mesh ref={meshRef}>
             <Suspense fallback={null}>
-                <Heart />
+                <Heart bgColor={bgColor} />
             </Suspense>
         </mesh>
     );

@@ -1,3 +1,3 @@
 import { Props as CanvasProps } from '@react-three/fiber';
 
-export type CustomCanvasProps = CanvasProps;
+export type CustomCanvasProps = CanvasProps & { backgroundColor?: string };

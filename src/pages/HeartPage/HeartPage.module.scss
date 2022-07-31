@@ -1,0 +1,19 @@
+.heart-page {
+    position: relative;
+
+    &__color {
+        width: 300px;
+        position: absolute;
+        z-index: 100;
+        color: $text-light;
+        padding: 16px;
+        border: 1px solid $text-light;
+        border-radius: 16px;
+        top: 10px;
+        left: 10px;
+
+        p {
+            margin-top: 0;
+        }
+    }
+}
